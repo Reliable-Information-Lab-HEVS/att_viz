@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>att_viz package &mdash; att_viz  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            att_viz
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">att_viz package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-att_viz.attention_aggregation_method">att_viz.attention_aggregation_method module</a><ul>
+<li><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod"><code class="docutils literal notranslate"><span class="pre">AttentionAggregationMethod</span></code></a><ul>
+<li><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod.HEADWISE_AVERAGING"><code class="docutils literal notranslate"><span class="pre">AttentionAggregationMethod.HEADWISE_AVERAGING</span></code></a></li>
+<li><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod.NONE"><code class="docutils literal notranslate"><span class="pre">AttentionAggregationMethod.NONE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-att_viz.attention_matrix">att_viz.attention_matrix module</a><ul>
+<li><a class="reference internal" href="#att_viz.attention_matrix.AttentionMatrix"><code class="docutils literal notranslate"><span class="pre">AttentionMatrix</span></code></a><ul>
+<li><a class="reference internal" href="#att_viz.attention_matrix.AttentionMatrix.format"><code class="docutils literal notranslate"><span class="pre">AttentionMatrix.format()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-att_viz.renderer">att_viz.renderer module</a><ul>
+<li><a class="reference internal" href="#att_viz.renderer.RenderConfig"><code class="docutils literal notranslate"><span class="pre">RenderConfig</span></code></a></li>
+<li><a class="reference internal" href="#att_viz.renderer.Renderer"><code class="docutils literal notranslate"><span class="pre">Renderer</span></code></a><ul>
+<li><a class="reference internal" href="#att_viz.renderer.Renderer.create_token_info"><code class="docutils literal notranslate"><span class="pre">Renderer.create_token_info()</span></code></a></li>
+<li><a class="reference internal" href="#att_viz.renderer.Renderer.render"><code class="docutils literal notranslate"><span class="pre">Renderer.render()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-att_viz.self_attention_model">att_viz.self_attention_model module</a><ul>
+<li><a class="reference internal" href="#att_viz.self_attention_model.SelfAttentionModel"><code class="docutils literal notranslate"><span class="pre">SelfAttentionModel</span></code></a><ul>
+<li><a class="reference internal" href="#att_viz.self_attention_model.SelfAttentionModel.generate_text"><code class="docutils literal notranslate"><span class="pre">SelfAttentionModel.generate_text()</span></code></a></li>
+<li><a class="reference internal" href="#att_viz.self_attention_model.SelfAttentionModel.load_model"><code class="docutils literal notranslate"><span class="pre">SelfAttentionModel.load_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-att_viz.utils">att_viz.utils module</a><ul>
+<li><a class="reference internal" href="#att_viz.utils.Experiment"><code class="docutils literal notranslate"><span class="pre">Experiment</span></code></a><ul>
+<li><a class="reference internal" href="#att_viz.utils.Experiment.basic_experiment"><code class="docutils literal notranslate"><span class="pre">Experiment.basic_experiment()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#att_viz.utils.process_saved_completions"><code class="docutils literal notranslate"><span class="pre">process_saved_completions()</span></code></a></li>
+<li><a class="reference internal" href="#att_viz.utils.save_completions"><code class="docutils literal notranslate"><span class="pre">save_completions()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-att_viz">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">att_viz</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">att_viz package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/att_viz.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="att-viz-package">
+<h1>att_viz package<a class="headerlink" href="#att-viz-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-att_viz.attention_aggregation_method">
+<span id="att-viz-attention-aggregation-method-module"></span><h2>att_viz.attention_aggregation_method module<a class="headerlink" href="#module-att_viz.attention_aggregation_method" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.attention_aggregation_method.AttentionAggregationMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.attention_aggregation_method.</span></span><span class="sig-name descname"><span class="pre">AttentionAggregationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Represents the possible attention aggregation methods.
+The supported aggregation methods are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>NONE</cite>: no dimension collapses</p></li>
+<li><p><cite>HEADWISE_AVERAGING</cite>: head dimension is collapsed</p></li>
+</ul>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="att_viz.attention_aggregation_method.AttentionAggregationMethod.HEADWISE_AVERAGING">
+<span class="sig-name descname"><span class="pre">HEADWISE_AVERAGING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod.HEADWISE_AVERAGING" title="Link to this definition"></a></dt>
+<dd><p>Represents the headwise averaging aggregation method - the head dimension of the attention matrix collapses, while the layer dimension is kept.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="att_viz.attention_aggregation_method.AttentionAggregationMethod.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod.NONE" title="Link to this definition"></a></dt>
+<dd><p>Represents the empty aggregation method - all layer and head dimensions of the attention matrix are kept.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-att_viz.attention_matrix">
+<span id="att-viz-attention-matrix-module"></span><h2>att_viz.attention_matrix module<a class="headerlink" href="#module-att_viz.attention_matrix" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.attention_matrix.AttentionMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.attention_matrix.</span></span><span class="sig-name descname"><span class="pre">AttentionMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.attention_matrix.AttentionMatrix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a self-attention matrix, recording the number of layers and heads,
+as well as whether it has been formatted for visualization or not.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.attention_matrix.AttentionMatrix.format">
+<span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aggr_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod" title="att_viz.attention_aggregation_method.AttentionAggregationMethod"><span class="pre">AttentionAggregationMethod</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_first_attention</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#att_viz.attention_matrix.AttentionMatrix.format" title="Link to this definition"></a></dt>
+<dd><p>Formats the wrapped attention matrix for HTML visualization, aggregating it based on the specified aggregation method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aggr_method</strong> – the aggregation method of the attention matrix. See <cite>AttentionAggregationMethod</cite>.</p></li>
+<li><p><strong>zero_first_attention</strong> – whether to ignore self attention values towards the first token.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-att_viz.renderer">
+<span id="att-viz-renderer-module"></span><h2>att_viz.renderer module<a class="headerlink" href="#module-att_viz.renderer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.renderer.RenderConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.renderer.</span></span><span class="sig-name descname"><span class="pre">RenderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_margin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">770</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_chars_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">110</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_token_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">22.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_margin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">115</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.renderer.RenderConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Rendering configuration class for specifying JavaScript preferences.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.renderer.Renderer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.renderer.</span></span><span class="sig-name descname"><span class="pre">Renderer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">render_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.renderer.RenderConfig" title="att_viz.renderer.RenderConfig"><span class="pre">RenderConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod" title="att_viz.attention_aggregation_method.AttentionAggregationMethod"><span class="pre">AttentionAggregationMethod</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">AttentionAggregationMethod.NONE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.renderer.Renderer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Renderering class for visualizing self-attention matrices.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.renderer.Renderer.create_token_info">
+<span class="sig-name descname"><span class="pre">create_token_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#att_viz.renderer.Renderer.create_token_info" title="Link to this definition"></a></dt>
+<dd><p>Used for js visualization. Computes the (x, y) coordinates for a list of tokens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tokens</strong> – an array of tokens</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a pair (res, dy) where res contains the (x, y) coordinates of the given tokens, and dy is the total height of the computed token sequence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.renderer.Renderer.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attention_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.attention_matrix.AttentionMatrix" title="att_viz.attention_matrix.AttentionMatrix"><span class="pre">AttentionMatrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">prettify_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_in_chunks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#att_viz.renderer.Renderer.render" title="Link to this definition"></a></dt>
+<dd><p>Creates and saves one or more interactive HTML visualizations of the given attention matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokens</strong> – the list of tokens of the prompt and model completion</p></li>
+<li><p><strong>prompt_length</strong> – the length of the prompt in tokens</p></li>
+<li><p><strong>attention_matrix</strong> – a formatted <cite>AttentionMatrix</cite> (see <cite>AttentionMatrix.format</cite>)</p></li>
+<li><p><strong>prettify_tokens</strong> – indicates whether to remove special characters in tokens, e.g. Ġ. (default <cite>True</cite>)</p></li>
+<li><p><strong>render_in_chunks</strong> – indicates whether to render in chunks or not (default <cite>True</cite>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-att_viz.self_attention_model">
+<span id="att-viz-self-attention-model-module"></span><h2>att_viz.self_attention_model module<a class="headerlink" href="#module-att_viz.self_attention_model" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.self_attention_model.SelfAttentionModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.self_attention_model.</span></span><span class="sig-name descname"><span class="pre">SelfAttentionModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.self_attention_model.SelfAttentionModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wrapper for a self-attention model.</p>
+<p>Loads and stores the model and its corresponding tokenizer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.self_attention_model.SelfAttentionModel.generate_text">
+<span class="sig-name descname"><span class="pre">generate_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_new_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'user\n{p}&lt;|endoftext|&gt;\nassistant\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#att_viz.attention_matrix.AttentionMatrix" title="att_viz.attention_matrix.AttentionMatrix"><span class="pre">AttentionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#att_viz.self_attention_model.SelfAttentionModel.generate_text" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Generates text and returns the completion, attention matrix, and prompt length (in tokens).</p>
+<dl>
+<dt>Args:</dt><dd><p>prompt: the prompt to use for text generation</p>
+<p>max_new_tokens: the maximum number of tokens to be generated</p>
+<p>save_prefix: the prefix to use if saving the computation results (default <cite>None</cite>)</p>
+<p>prompt_template: the prompt template to use for text generation (default: <a href="#id1"><span class="problematic" id="id2">`</span></a>”user</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>{p}&lt;<a href="#id5"><span class="problematic" id="id6">|endoftext|</span></a>&gt;
+assistant
+“<a href="#id3"><span class="problematic" id="id4">`</span></a>)</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Returns:</dt><dd><p>the generated completion (as a string and as a list of tokens), attention matrix, and prompt length (in tokens)</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.self_attention_model.SelfAttentionModel.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AutoModelForCausalLM</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AutoTokenizer</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#att_viz.self_attention_model.SelfAttentionModel.load_model" title="Link to this definition"></a></dt>
+<dd><p>Loads and returns a HuggingFace pretrained model and the corresponding tokenizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_name_or_directory</strong> – the name of the model to load, or alternatively the directory from which to load the model</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the loaded model and tokenizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-att_viz.utils">
+<span id="att-viz-utils-module"></span><h2>att_viz.utils module<a class="headerlink" href="#module-att_viz.utils" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="att_viz.utils.Experiment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">att_viz.utils.</span></span><span class="sig-name descname"><span class="pre">Experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.self_attention_model.SelfAttentionModel" title="att_viz.self_attention_model.SelfAttentionModel"><span class="pre">SelfAttentionModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.renderer.Renderer" title="att_viz.renderer.Renderer"><span class="pre">Renderer</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#att_viz.utils.Experiment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple attention visualization experiment.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="att_viz.utils.Experiment.basic_experiment">
+<span class="sig-name descname"><span class="pre">basic_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod" title="att_viz.attention_aggregation_method.AttentionAggregationMethod"><span class="pre">AttentionAggregationMethod</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#att_viz.utils.Experiment.basic_experiment" title="Link to this definition"></a></dt>
+<dd><p>A simple text generation experiment, in which the resulting prompt-completion
+pair is visualized with self-attention information in HTML format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prompt</strong> – the prompt to use for text generation</p></li>
+<li><p><strong>aggr_method</strong> – the aggregation method of the attention matrix. See <cite>AttentionAggregationMethod</cite></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="att_viz.utils.process_saved_completions">
+<span class="sig-prename descclassname"><span class="pre">att_viz.utils.</span></span><span class="sig-name descname"><span class="pre">process_saved_completions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">render_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.renderer.RenderConfig" title="att_viz.renderer.RenderConfig"><span class="pre">RenderConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#att_viz.attention_aggregation_method.AttentionAggregationMethod" title="att_viz.attention_aggregation_method.AttentionAggregationMethod"><span class="pre">AttentionAggregationMethod</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#att_viz.utils.process_saved_completions" title="Link to this definition"></a></dt>
+<dd><p>Render inference results obtained using <cite>save_completions</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>render_config</strong> – the rendering configuration. See <cite>RenderConfig</cite>.</p></li>
+<li><p><strong>aggregation_method</strong> – the aggregation method of the attention matrix. See <cite>AttentionAggregationMethod</cite></p></li>
+<li><p><strong>save_prefixes</strong> – the list of save prefixes that have been used for storing inference results</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="att_viz.utils.save_completions">
+<span class="sig-prename descclassname"><span class="pre">att_viz.utils.</span></span><span class="sig-name descname"><span class="pre">save_completions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#att_viz.utils.save_completions" title="Link to this definition"></a></dt>
+<dd><p>Load a self-attention model and do inference for the given prompts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name_or_directory</strong> – the name of the model to load, or alternatively the directory from which to load the model</p></li>
+<li><p><strong>prompts</strong> – the list of prompts to use for text generation</p></li>
+<li><p><strong>save_prefixes</strong> – the list of save prefixes to use for storing inference results - should have the same length as <cite>prompts</cite></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-att_viz">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-att_viz" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ana-Maria Indreias.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
