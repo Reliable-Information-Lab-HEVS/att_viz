@@ -1,15 +1,9 @@
 <!-- omit in toc -->
 # Contributing to att_viz
 
-First off, thanks for taking the time to contribute! ❤️
+First off, thank you for taking the time to contribute to `att_viz`!
 
 All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
-
-> And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
-> - Star the project
-> - Tweet about it
-> - Refer this project in your project's readme
-> - Mention the project at local meetups and tell your friends/colleagues
 
 <!-- omit in toc -->
 ## Table of Contents
@@ -124,16 +118,12 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/aindre
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
 
--->
+For any code contribution, please make sure to update the example Jupyter Notebooks and the tests accordingly. For unit tests, we use `pytest`.
 
 ### Improving The Documentation
-<!-- TODO
-Updating, improving and correcting the documentation
 
--->
+To improve our project's Pydoc, modify it in the `.py` files directly. We use `Sphinx` with `autodoc` and `napoleon` enabled, so these changes will be automatically applied to our online documentation.
 
 ## Styleguides
 
