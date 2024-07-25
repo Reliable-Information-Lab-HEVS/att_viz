@@ -5,7 +5,7 @@
 
 # att_viz
 
-[Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing)
+[Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing)
 
 ## Statement of Need
 
