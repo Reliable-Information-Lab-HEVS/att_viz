@@ -46,4 +46,4 @@ In both views, users can freeze the attention value visualization for a certain 
 
 ## Contributing
 
-Contributions are welcome. Check out our contribution guide [here](CONTRIBUTING.md).
+Contributions are welcome. Check out our contribution guide [here](https://github.com/aindreias/att_viz/blob/main/CONTRIBUTING.md).
