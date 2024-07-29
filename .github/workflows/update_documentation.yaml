@@ -12,9 +12,9 @@ jobs:
 
       - name: Python setup with dependency caching
         uses: actions/setup-python@v5
-          with:
-            python-version: '3.11'
-            cache: 'pip' # caching pip dependencies
+        with:
+          python-version: '3.11'
+          cache: 'pip' # caching pip dependencies
         run: pip install sphinx sphinx_rtd_theme
 
       - name: Rebuild docs
