@@ -1,0 +1,22 @@
+[project]
+name = "att_viz"
+version = "0.0.4"
+authors = [
+  { name="Ana-Maria Indreias", email="anamaria.indreias@gmail.com" },
+]
+description = "A package for self-attention visualization"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = ["torch", "transformers", "accelerate", "ipykernel", "pickle", "json", "ipython"]
+
+[project.urls]
+Homepage = "https://github.com/aindreias/att_viz"
+Issues = "https://github.com/aindreias/att_viz/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
