@@ -19,7 +19,7 @@ jobs:
 
       - name: Rebuild docs
         shell: bash
-        run: sphinx-apidoc -f -o . ../att-viz
+        run: sphinx-apidoc -f -o . ../att_viz
 
       - name: Rebuild html
         shell: bash
