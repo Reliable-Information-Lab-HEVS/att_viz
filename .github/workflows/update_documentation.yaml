@@ -28,6 +28,6 @@ jobs:
         working-directory: ./docs
         shell: bash
         run: |
-          git add .docs/*.rst _build/*
+          git add *.rst _build/*
           git commit -m "Update Sphinx documentation"
           git push
