@@ -3,10 +3,6 @@ on: workflow_dispatch
 jobs:
   update-docs:
     runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: ./docs
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -15,17 +11,21 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Python setup with dependency caching
+        working-directory: ./docs
         run: pip install sphinx sphinx_rtd_theme
 
       - name: Rebuild docs
+        working-directory: ./docs
         shell: bash
         run: sphinx-apidoc -f -o . ../att_viz
 
       - name: Rebuild html
+        working-directory: ./docs
         shell: bash
         run: sphinx-build . _build
 
       - name: Commit and push changes
+        working-directory: ./docs
         shell: bash
         run: |
           git add .docs/*.rst _build/*
