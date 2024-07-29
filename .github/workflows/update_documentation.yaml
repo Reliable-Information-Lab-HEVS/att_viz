@@ -1,5 +1,5 @@
 name: Update Sphinx documentation
-on: workflow-dispatch
+on: workflow_dispatch
 jobs:
   update-docs:
     runs-on: ubuntu-latest

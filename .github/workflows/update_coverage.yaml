@@ -1,5 +1,5 @@
 name: Update test coverage
-on: workflow-dispatch
+on: workflow_dispatch
 jobs:
   update-cov:
     runs-on: ubuntu-latest
