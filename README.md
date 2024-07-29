@@ -1,11 +1,13 @@
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Coverage Status](https://github.com/aindreias/att_viz/blob/main/reports/coverage/coverage_badge.svg)](https://github.com/aindreias/att_viz/blob/main/reports/coverage/html_report/index.html)
+# **<p style="text-align:center"> att_viz </p>**
 
-# att_viz
+### <p style="text-align:center"> [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a> [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Coverage Status](https://github.com/aindreias/att_viz/blob/main/reports/coverage/coverage_badge.svg)](https://github.com/aindreias/att_viz/blob/main/reports/coverage/html_report/index.html) </p>
 
-[Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing)
+### <p style="text-align:center"> [Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing) </p>
+
+# <p style="text-align:center"> ![Example of att_viz](https://github.com/aindreias/att_viz/blob/main/examples/tomjerry.png "Title") </p>
+
+
+
 
 ## Installation Guide
 
