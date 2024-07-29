@@ -12,7 +12,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Python setup with dependency caching
-        run: pip install pytest pytest-cov genbadge[coverage] torch numpy accelerate ipykernel ipython transformers
+        run: pip install pytest pytest-cov pytest-mock genbadge[coverage] torch numpy accelerate ipykernel ipython transformers 
 
       - name: Run pytest--cov
         shell: bash
