@@ -8,8 +8,9 @@ jobs:
         working_directory: ./docs
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Python setup with dependency caching
-	      uses: actions/checkout@v4
         uses: actions/setup-python@v5
           with:
             python-version: '3.11'
