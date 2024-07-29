@@ -33,8 +33,8 @@ jobs:
         working-directory: ./docs
         shell: bash
         run: | # https://stackoverflow.com/a/78163451
-          & git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          & git config --local user.name "github-actions[bot]"
-          & git add *.rst _build/*
-          & git commit -m "Update Sphinx documentation"
-          & git push
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.rst _build/*
+          git commit -m "Update Sphinx documentation"
+          git push
