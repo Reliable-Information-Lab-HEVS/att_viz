@@ -1,0 +1,31 @@
+name: Update test coverage
+on: workflow-dispatch
+jobs:
+  update-cov
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Python setup with dependency caching
+          uses: actions/checkout@v4
+          uses: actions/setup-python@v5
+            with:
+              python-version: '3.11'
+              cache: 'pip' # caching pip dependencies
+          run: pip install pytest pytest-cov genbadge[coverage]
+
+        - name: Run pytest--cov
+          shell: bash
+          run: pytest --cov-report xml:reports/coverage/coverage.xml --cov-report html:reports/coverage/html_report --cov=att_viz
+
+        - name: Run genbadge
+          shell: bash
+          run: genbadge coverage -i reports/coverage/coverage.xml -o reports/coverage/coverage_badge.svg
+
+        - name: Archive code coverage results
+          uses: actions/upload-artifact@v4
+          with:
+            name: coverage-results
+            path: |
+              reports/coverage/coverage.xml
+              reports/coverage/html_report
+              reports/coverage/coverage_badge.svg

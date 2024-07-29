@@ -1,0 +1,32 @@
+name: Update Sphinx documentation
+on: workflow-dispatch
+jobs:
+  update-docs
+    runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working_directory: ./docs
+
+    steps:
+      - name: Python setup with dependency caching
+	      uses: actions/checkout@v4
+        uses: actions/setup-python@v5
+          with:
+            python-version: '3.11'
+            cache: 'pip' # caching pip dependencies
+        run: pip install sphinx sphinx_rtd_theme
+
+      - name: Rebuild docs
+        shell: bash
+        run: sphinx-apidoc -f -o . ../att-viz
+
+      - name: Rebuild html
+        shell: bash
+        run: sphinx-build . _build
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          git add .docs/*.rst _build/*
+          git commit -m "Update Sphinx documentation"
+          git push
