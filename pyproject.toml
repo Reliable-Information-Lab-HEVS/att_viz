@@ -1,6 +1,6 @@
 [project]
 name = "att_viz"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
   { name="Ana-Maria Indreias", email="anamaria.indreias@gmail.com" },
 ]
@@ -11,7 +11,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-dependencies = ["torch", "transformers", "accelerate", "ipykernel", "pickle", "json", "ipython"]
+dependencies = ["torch", "transformers", "accelerate", "ipykernel", "ipython"]
 
 [project.urls]
 Homepage = "https://github.com/aindreias/att_viz"

@@ -1,7 +1,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Coverage Status](./reports/coverage/coverage_badge.svg?dummy=8484744)](https://github.com/aindreias/att_viz/blob/main/reports/coverage/html_report/index.html)
+[![Coverage Status](https://github.com/aindreias/att_viz/blob/main/reports/coverage/coverage_badge.svg)](https://github.com/aindreias/att_viz/blob/main/reports/coverage/html_report/index.html)
 
 # att_viz
 
@@ -9,9 +9,9 @@
 
 ## Installation Guide
 
-`att_viz` is published on [TestPyPi](https://test.pypi.org/project/att-viz/0.0.4/). Install it using:
+`att_viz` is published on [TestPyPi](https://test.pypi.org/project/att-viz/0.0.5/). Install it using:
 
-`pip install -i https://test.pypi.org/simple/ att-viz==0.0.4`
+`pip install -i https://test.pypi.org/simple/ att-viz==0.0.5`
 
 ## Statement of Need
 
