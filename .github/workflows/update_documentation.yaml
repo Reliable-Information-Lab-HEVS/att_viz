@@ -12,7 +12,7 @@ jobs:
 
       - name: Python setup with dependency caching
         working-directory: ./docs
-        run: pip install sphinx sphinx_rtd_theme
+        run: pip install sphinx sphinx_rtd_theme torch numpy accelerate ipykernel ipython transformers
 
       - name: Rebuild docs
         working-directory: ./docs
