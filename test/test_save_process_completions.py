@@ -21,7 +21,8 @@ class MockFileOpener:
             self.files.update({filename: new_file_pointer})
 
         return self.files.get(filename)
-    
+
+
 class MockFileOpenerForWrites(MockFileOpener):
     def add_file_pointer(self, filename, fp):
         self.files.update({filename: fp})
@@ -226,20 +227,34 @@ def test_pickling_works():
         pickle.dumps(promptLen, protocol=pickle.HIGHEST_PROTOCOL)
     )
 
+
 def test_rendering_saved_completions_works(mocker):
     with open("test/test_result.html", "r") as fp:
         expected_html_content = fp.read()
 
     mock_opener = MockFileOpenerForWrites()
 
-    mock_opener.add_file_pointer("test_attention_matrix.pickle", open("test/test_attention_matrix.pickle", "rb"))
-    mock_opener.add_file_pointer( "test_completion_tokens.pickle", open("test/test_completion_tokens.pickle", "rb"))
-    mock_opener.add_file_pointer("test_input_length.pickle", open("test/test_input_length.pickle", "rb"))
-    mock_opener.add_file_pointer("attention_viz.js", open("att_viz/attention_viz.js", "r"))
+    mock_opener.add_file_pointer(
+        "test_attention_matrix.pickle", open("test/test_attention_matrix.pickle", "rb")
+    )
+    mock_opener.add_file_pointer(
+        "test_completion_tokens.pickle",
+        open("test/test_completion_tokens.pickle", "rb"),
+    )
+    mock_opener.add_file_pointer(
+        "test_input_length.pickle", open("test/test_input_length.pickle", "rb")
+    )
+    mock_opener.add_file_pointer(
+        "attention_viz.js", open("att_viz/attention_viz.js", "r")
+    )
 
     mocker.patch("builtins.open", mock_opener.open_file)
 
-    process_saved_completions(RenderConfig(), AttentionAggregationMethod.HEADWISE_AVERAGING, save_prefixes=["test"])
+    process_saved_completions(
+        RenderConfig(),
+        AttentionAggregationMethod.HEADWISE_AVERAGING,
+        save_prefixes=["test"],
+    )
 
     html_pointers = [
         file_pointer
@@ -260,7 +275,14 @@ def test_rendering_saved_completions_works(mocker):
     id_regex = r'"AttViz-[0-9a-zA-Z]*"'
 
     # A static content check (ignoring the root div id)
-    assert re.sub(id_regex, "", html_content) == re.sub(id_regex, "", expected_html_content)
+    assert re.sub(id_regex, "", html_content) == re.sub(
+        id_regex, "", expected_html_content
+    )
+
 
 def tst_only_once():
-    save_completions("Salesforce/codegen-350M-mono", ["Continue this sentence: the cute orange cat"], save_prefixes=["test"])
+    save_completions(
+        "Salesforce/codegen-350M-mono",
+        ["Continue this sentence: the cute orange cat"],
+        save_prefixes=["test"],
+    )
