@@ -312,7 +312,7 @@ class Renderer:
             )
 
             res = self._populate_html(attn_data, vis_id=id_base)  # We keep the base id
-            htmls.append({"html": res, "name": id_base})
+            htmls.append({"html": res, "name": ""})
 
         return htmls
 
@@ -323,6 +323,7 @@ class Renderer:
         attention_matrix: AttentionMatrix,
         prettify_tokens: bool = True,
         render_in_chunks: bool = True,
+        save_prefix: str = "att_viz_",
     ) -> None:
         """
         Creates and saves one or more interactive HTML visualizations of the given attention matrix.
@@ -337,6 +338,8 @@ class Renderer:
             prettify_tokens: indicates whether to remove special characters in tokens, e.g. Ġ. (default `True`)
 
             render_in_chunks: indicates whether to render in chunks or not (default `True`)
+
+            save_prefix: which prefix to use when saving the HTML visualizations (default `"att_viz_"`)
         """
 
         if prettify_tokens:
@@ -347,7 +350,9 @@ class Renderer:
         )
 
         for html in htmls:
-            with open(f"{html['name']}.html", mode="w", encoding="UTF-8") as fp:
+            with open(
+                f"{save_prefix}{html['name']}.html", mode="w", encoding="UTF-8"
+            ) as fp:
                 fp.write(html["html"].data)
 
     def __repr__(self):

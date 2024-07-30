@@ -30,6 +30,7 @@ class Experiment:
         max_new_tokens: int = 512,
         save_prefix: str | None = None,
         prompt_template: str | None = "user\n{p}<|endoftext|>\nassistant\n",
+        save_prefix_html: str = "att_viz_",
         **generation_kwargs,
     ) -> None:
         """
@@ -48,6 +49,8 @@ class Experiment:
             prompt_template: the prompt template to use for text generation (default: `"user\n{p}<|endoftext|>\nassistant\n"`)
 
             generation_kwargs: other keyword arguments to be passed to the model's `generate` method
+
+            save_prefix_html: which prefix to use when saving the HTML visualizations (default `"att_viz_"`)
         """
         completion_tokens, attention_matrix, prompt_length = self.model.generate_text(
             prompt, max_new_tokens, save_prefix, prompt_template, **generation_kwargs
@@ -61,6 +64,7 @@ class Experiment:
             attention_matrix,
             prettify_tokens=True,
             render_in_chunks=(aggr_method == AttentionAggregationMethod.NONE),
+            save_prefix=save_prefix_html,
         )
 
     def __repr__(self):
@@ -81,7 +85,6 @@ def save_completions(
     prompts: list[str],
     save_prefixes: list[str],
     max_new_tokens: int = 512,
-    save_prefix: str | None = None,
     prompt_template: str | None = "user\n{p}<|endoftext|>\nassistant\n",
     **generation_kwargs,
 ) -> None:
@@ -96,8 +99,6 @@ def save_completions(
         save_prefixes: the list of save prefixes to use for storing inference results - should have the same length as `prompts`
 
         max_new_tokens: the maximum number of tokens to be generated
-
-        save_prefix: the prefix to use if saving the computation results (default `None`)
 
         prompt_template: the prompt template to use for text generation (default: `"user\n{p}<|endoftext|>\nassistant\n"`)
 
@@ -163,4 +164,5 @@ def process_saved_completions(
                 render_in_chunks=(
                     aggregation_method == AttentionAggregationMethod.NONE
                 ),
+                save_prefix=save_prefix,
             )
