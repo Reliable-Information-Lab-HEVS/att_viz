@@ -20,7 +20,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 ## I Have a Question
 
-> If you want to ask a question, we assume that you have read the available [Documentation](https://att_viz-docs.io).
+> If you want to ask a question, we assume that you have read the available [Documentation](https://aindreias.github.io/att_viz/att_viz.html).
 
 Before you ask a question, it is best to search for existing [Issues](https://github.com/aindreias/att_viz/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
 
