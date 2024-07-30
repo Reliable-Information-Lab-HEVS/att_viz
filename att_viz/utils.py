@@ -50,7 +50,7 @@ class Experiment:
             generation_kwargs: other keyword arguments to be passed to the model's `generate` method
         """
         completion_tokens, attention_matrix, prompt_length = self.model.generate_text(
-            prompt, max_new_tokens, save_prefix, prompt_template, generation_kwargs
+            prompt, max_new_tokens, save_prefix, prompt_template, **generation_kwargs
         )
 
         attention_matrix.format(aggr_method, zero_first_attention=False)
@@ -109,7 +109,7 @@ def save_completions(
 
     for prompt, save_prefix in zip(prompts, save_prefixes):
         _ = model.generate_text(
-            prompt, max_new_tokens, save_prefix, prompt_template, generation_kwargs
+            prompt, max_new_tokens, save_prefix, prompt_template, **generation_kwargs
         )
         del _
         gc.collect()
