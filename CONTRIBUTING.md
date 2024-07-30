@@ -119,11 +119,19 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/aindre
 
 ### Your First Code Contribution
 
-For any code contribution, please make sure to update the example Jupyter Notebooks and the tests accordingly. For unit tests, we use `pytest`.
+For any code contribution, make sure to update the example Jupyter Notebooks and the tests accordingly. For unit tests, we use `pytest`.
+
+To check coverage locally, navigate to the project root and run:
+`pytest --cov=att_viz`
+
+To update the coverage reports on the repo, the coverage workflow needs to be triggered. Ask a maintainer to do so.
 
 ### Improving The Documentation
 
-To improve our project's Pydoc, modify it in the `.py` files directly. We use `Sphinx` with `autodoc` and `napoleon` enabled, so these changes will be automatically applied to our online documentation.
+To improve our project's Pydoc, modify it in the `.py` files directly and submit a pull request. We use Google-style Pydocs.
+
+
+Once your changes are accepted, the Sphinx rebuild workflow needs to be triggered. Ask a maintainer to do so. To check that your documentation renders well, you can take a look at this workflow before submitting a pull request. For reference, we use `Sphinx` with the `autodoc` and `napoleon` extensions enabled.
 
 ## Styleguides
 
