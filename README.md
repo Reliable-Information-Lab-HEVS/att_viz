@@ -3,7 +3,7 @@
 
 #### <p align=center> [Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing) | [Other Packages](#other-packages-for-visualizing-attention)</p>
 
-# <p align=center> ![Example of att_viz](https://github.com/aindreias/att_viz/blob/main/examples/tomjerry.png "Title") </p>
+# <p align=center> ![Example of att_viz](https://github.com/aindreias/att_viz/blob/main/examples/tomjerry-alt.png "Title") </p>
 
 ## Installation Guide
 
