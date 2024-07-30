@@ -31,4 +31,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add -f reports/coverage/coverage.xml reports/coverage/html_report/* reports/coverage/coverage_badge.svg
           git commit -m "Update coverage results"
+          git status
           git push
