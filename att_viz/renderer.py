@@ -217,7 +217,9 @@ class Renderer:
 
         html2 = HTML(vis_html)
 
-        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        __location__ = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__))
+        )
         with open(
             os.path.join(__location__, "attention_viz.js"), mode="r", encoding="UTF-8"
         ) as fp:

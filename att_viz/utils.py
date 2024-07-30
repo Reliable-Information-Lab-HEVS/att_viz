@@ -24,7 +24,13 @@ class Experiment:
         self.renderer = renderer
 
     def basic_experiment(
-        self, prompt: str, aggr_method: AttentionAggregationMethod
+        self,
+        prompt: str,
+        aggr_method: AttentionAggregationMethod,
+        max_new_tokens: int = 512,
+        save_prefix: str | None = None,
+        prompt_template: str | None = "user\n{p}<|endoftext|>\nassistant\n",
+        **generation_kwargs,
     ) -> None:
         """
         A simple text generation experiment, in which the resulting prompt-completion
@@ -34,9 +40,17 @@ class Experiment:
             prompt: the prompt to use for text generation
 
             aggr_method: the aggregation method of the attention matrix. See `AttentionAggregationMethod`
+
+            max_new_tokens: the maximum number of tokens to be generated
+
+            save_prefix: the prefix to use if saving the computation results (default `None`)
+
+            prompt_template: the prompt template to use for text generation (default: `"user\n{p}<|endoftext|>\nassistant\n"`)
+
+            generation_kwargs: other keyword arguments to be passed to the model's `generate` method
         """
         completion_tokens, attention_matrix, prompt_length = self.model.generate_text(
-            prompt, prompt_template=None
+            prompt, max_new_tokens, save_prefix, prompt_template, generation_kwargs
         )
 
         attention_matrix.format(aggr_method, zero_first_attention=False)
@@ -63,7 +77,13 @@ class Experiment:
 
 
 def save_completions(
-    model_name_or_directory: str, prompts: list[str], save_prefixes: list[str]
+    model_name_or_directory: str,
+    prompts: list[str],
+    save_prefixes: list[str],
+    max_new_tokens: int = 512,
+    save_prefix: str | None = None,
+    prompt_template: str | None = "user\n{p}<|endoftext|>\nassistant\n",
+    **generation_kwargs,
 ) -> None:
     """
     Load a self-attention model and do inference for the given prompts.
@@ -74,6 +94,14 @@ def save_completions(
         prompts: the list of prompts to use for text generation
 
         save_prefixes: the list of save prefixes to use for storing inference results - should have the same length as `prompts`
+
+        max_new_tokens: the maximum number of tokens to be generated
+
+        save_prefix: the prefix to use if saving the computation results (default `None`)
+
+        prompt_template: the prompt template to use for text generation (default: `"user\n{p}<|endoftext|>\nassistant\n"`)
+
+        generation_kwargs: other keyword arguments to be passed to the model's `generate` method
     """
     assert len(prompts) == len(save_prefixes)
 
@@ -81,11 +109,8 @@ def save_completions(
 
     for prompt, save_prefix in zip(prompts, save_prefixes):
         _ = model.generate_text(
-            prompt=prompt,
-            max_new_tokens=512,
-            save_prefix=save_prefix,
-            prompt_template=None,
-        )  # TODO make passing generation args easier or optional
+            prompt, max_new_tokens, save_prefix, prompt_template, generation_kwargs
+        )
         del _
         gc.collect()
 
@@ -97,6 +122,7 @@ def process_saved_completions(
     render_config: RenderConfig,
     aggregation_method: AttentionAggregationMethod,
     save_prefixes: list[str],
+    prettify_tokens: bool = True,
 ) -> None:
     """
     Render inference results obtained using `save_completions`.
@@ -107,6 +133,8 @@ def process_saved_completions(
         aggregation_method: the aggregation method of the attention matrix. See `AttentionAggregationMethod`
 
         save_prefixes: the list of save prefixes that have been used for storing inference results
+
+        prettify_tokens: indicates whether to remove special characters in tokens, e.g. Ġ. (default `True`)
     """
 
     renderer = Renderer(
@@ -114,13 +142,13 @@ def process_saved_completions(
     )
 
     for save_prefix in save_prefixes:
-        with open(
-            f"{save_prefix}_completion_tokens.pickle", "rb"
-        ) as fp_completion_tokens, open(
-            f"{save_prefix}_attention_matrix.pickle", "rb"
-        ) as fp_att, open(
-            f"{save_prefix}_input_length.pickle", "rb"
-        ) as fp_inp_len:
+        with (
+            open(
+                f"{save_prefix}_completion_tokens.pickle", "rb"
+            ) as fp_completion_tokens,
+            open(f"{save_prefix}_attention_matrix.pickle", "rb") as fp_att,
+            open(f"{save_prefix}_input_length.pickle", "rb") as fp_inp_len,
+        ):
 
             completion_tokens: list[str] = pickle.loads(fp_completion_tokens.read())
             attention_matrix: AttentionMatrix = pickle.loads(fp_att.read())
@@ -131,7 +159,7 @@ def process_saved_completions(
                 completion_tokens,
                 input_length,
                 attention_matrix,
-                prettify_tokens=True,
+                prettify_tokens,
                 render_in_chunks=(
                     aggregation_method == AttentionAggregationMethod.NONE
                 ),

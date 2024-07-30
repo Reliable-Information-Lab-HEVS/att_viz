@@ -25,9 +25,7 @@ class SelfAttentionModel:
         self.tokenizer = t
         self.model_name_or_directory = model_name_or_directory
 
-    def load_model(
-        self, model_name_or_directory: str
-    ) -> tuple[AutoModelForCausalLM, AutoTokenizer]:  # TODO figure out the true types
+    def load_model(self, model_name_or_directory: str):
         """
         Loads and returns a HuggingFace pretrained model and the corresponding tokenizer.
 
@@ -51,6 +49,7 @@ class SelfAttentionModel:
         max_new_tokens: int = 512,
         save_prefix: str | None = None,
         prompt_template: str | None = "user\n{p}<|endoftext|>\nassistant\n",
+        **generation_kwargs,
     ) -> tuple[list[str], AttentionMatrix, int]:
         """
         Generates text and returns the completion, attention matrix, and prompt length (in tokens).
@@ -63,6 +62,8 @@ class SelfAttentionModel:
             save_prefix: the prefix to use if saving the computation results (default `None`)
 
             prompt_template: the prompt template to use for text generation (default: `"user\n{p}<|endoftext|>\nassistant\n"`)
+
+            generation_kwargs: other keyword arguments to be passed to the model's `generate` method
 
         Returns:
             the generated completion (as a string and as a list of tokens), attention matrix, and prompt length (in tokens)
@@ -84,23 +85,23 @@ class SelfAttentionModel:
             do_sample=False,
             output_attentions=True,
             return_dict_in_generate=True,
+            **generation_kwargs,
         )
 
         completion = gen["sequences"][0]
         attentions = gen["attentions"]
 
         attention_matrix = AttentionMatrix(attentions)
-        # completion_string = self.tokenizer.decode(completion)
         completion_tokens = self.tokenizer.convert_ids_to_tokens(completion)
 
         if save_prefix is not None:
-            with open(
-                f"{save_prefix}_completion_tokens.pickle", "wb"
-            ) as fp_completion_tokens, open(
-                f"{save_prefix}_attention_matrix.pickle", "wb"
-            ) as fp_att, open(
-                f"{save_prefix}_input_length.pickle", "wb"
-            ) as fp_inp_len:
+            with (
+                open(
+                    f"{save_prefix}_completion_tokens.pickle", "wb"
+                ) as fp_completion_tokens,
+                open(f"{save_prefix}_attention_matrix.pickle", "wb") as fp_att,
+                open(f"{save_prefix}_input_length.pickle", "wb") as fp_inp_len,
+            ):
 
                 fp_completion_tokens.write(
                     pickle.dumps(completion_tokens, pickle.HIGHEST_PROTOCOL)
