@@ -7,9 +7,9 @@
 
 ## Installation Guide
 
-`att_viz` is published on [TestPyPi](https://test.pypi.org/project/att-viz/0.0.5/). Install it using:
+`att_viz` is published on [TestPyPi](https://test.pypi.org/project/att-viz/0.0.6/). Install it using:
 
-`pip install -i https://test.pypi.org/simple/ att-viz==0.0.5`
+`pip install -i https://test.pypi.org/simple/ att-viz==0.0.6`
 
 ## Statement of Need
 
