@@ -1,7 +1,7 @@
 # **<p align=center> att_viz </p>**
 ### <p align=center> [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a> [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Coverage Status](https://github.com/aindreias/att_viz/blob/main/reports/coverage/coverage_badge.svg)](https://github.com/aindreias/att_viz/blob/main/reports/coverage/html_report/index.html) </p>
 
-#### <p align=center> [Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing) </p>
+#### <p align=center> [Documentation](https://aindreias.github.io/att_viz/att_viz.html) | [Statement of Need](#statement-of-need)  |  [Target Audience](#target-audience)  |  [Features](#features)  |  [Contributing](#contributing) | [Other Packages](#other-packages-for-visualizing-attention)</p>
 
 # <p align=center> ![Example of att_viz](https://github.com/aindreias/att_viz/blob/main/examples/tomjerry.png "Title") </p>
 
@@ -45,3 +45,11 @@ In both views, users can freeze the attention value visualization for a certain 
 ## Contributing
 
 Contributions are welcome. Check out our contribution guide [here](https://github.com/aindreias/att_viz/blob/main/CONTRIBUTING.md).
+
+## Other packages for visualizing attention
+
+`att_viz` started as a modification of these packages, in order to support visualizing large self attention matrices:
+- [`bertviz`](https://github.com/jessevig/bertviz) by Jesse Vig
+- [`attention`](https://github.com/mattneary/attention/) by Matt Neary
+
+We'd like to think `att_viz` is more convenient to use, but nevertheless we encourage interested users to take a look, especially at `bertviz` for visualizing cross attention in short sentences.
