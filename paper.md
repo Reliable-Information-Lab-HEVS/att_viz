@@ -37,15 +37,15 @@ inspection of modern models in the 1-10B parameters range.
 ## Statement of Need
 
 With the recent advances in generative NLP, based on the transformers architecture, LLMs and LLM-based solutions are now
-deployed in a variety of domains. While the deployment of LLMs is possible over a variety of supperts, one of the most 
-wide-spread one is the `transformers` library, developed by [HuggingFace](https://huggingface.co/) and supported by their
+deployed in a variety of domains. While the deployment of LLMs is possible over a variety of supports, one of the most 
+widespread ones is the `transformers` library, developed by [HuggingFace](https://huggingface.co/) and supported by their
 extensive community model repository. 
 
 While the LLMs have been touted as universal tools ready for a variety of applications, their capabilities are, in fact,
 limited, and failure modes for specific applications are often impossible to anticipate (Anthropic). In this context,
 domain experts with minimal Machine Learning expertise and basic programming education find themselves attempting to debug
 LLM errors. One of the most valuable tools to achieve it historically has been the per-layer attention maps of LLMs,
-allowing to see which parts of the prompt and previously generated tokens the model focuses on when generating problematic
+allowing one to see which parts of the prompt and previously generated tokens the model focuses on when generating problematic
 content [StolfoMath2023], [templeton2024scaling].
 
 Unfortunately, such analysis is currently out of reach of novices to the LLM field, given that readily available attention 
@@ -60,7 +60,7 @@ Just like `bertviz` itself extended [`tensor2tensor`](https://github.com/tensorf
 `bertviz` to retain its important features - notably single-flag compatibility with all `transformers`-base models, and
 mitigating its shortcomings by modifying the visualization schema and splitting the full attention matrix when to allow
 point-and-click visualization of all models in the sub-100B parameter range, even on less powerful machines. `att_viz` is a
-fully-documented Python package, optimized for novice user, and designed to be easily extensible by more advanced users.
+fully-documented Python package, optimized for novice users and designed to be easily extensible by more advanced users.
 
 [//]: # (## Summary)
 
@@ -77,9 +77,9 @@ fully-documented Python package, optimized for novice user, and designed to be e
 [//]: # (Readily available visualization tools tend to be less user-friendly, may have outdated dependencies, and cannot handle large amounts of attention data, which one would expect from regular-sized models. This is because HTML visualizations are used, and they need to contain the full attention matrix, the size of which depends on the number of layers, attention heads, and the number of prompt and completion tokens. `att_viz` supports larger completion sizes, as well as bigger models, by splitting the visualization into multiple files when needed. Furthermore, it is a fully-documented Python package, designed to be easily extensible in order to fit specific users' needs.)
 
 ## Target Audience
-This package is optimized for domain experts in the fields of potential LLM applications, novice to ML-specific libraries
+This package is optimized for domain experts in the fields of potential LLM applications, novices to ML-specific libraries
 and using models deployed on the `transformers` library, seeking to leverage self-attention maps to better understand 
-the behavior of LLM models in their field. We believe it could be most used to academic researchers, industry practitioners,
+the behaviour of LLM models in their field. We believe it could be most useful to academic researchers, industry practitioners,
 and students who do not specialize in ML.
 
 ## Features
@@ -87,7 +87,7 @@ and students who do not specialize in ML.
 First-time users can gain a first-hand understanding of the `att_viz` by running our introductory Jupyter Notebooks. More
 advanced users can gain a deeper understanding of `att_viz` via GitHub Pages documentation.
 
-Succintly: 
+Succinctly: 
 
 ```
 from att_viz.utils import Experiment
@@ -110,12 +110,12 @@ renderer = Renderer(render_config,
 # Initialize the experiment 
 experiment = Experiment(model, renderer)
 
-# Finally, run the inference, save the attention matrices and generates html render files in the current working directory
+# Finally, run the inference, save the attention matrices and generate html render files in the current working directory
 experiment.basic_experiment(prompt=prompt,
                             aggr_method=AttentionAggregationMethod.NONE)
 ```
 
-For smaller models, immediate visualization of all attention layer is possible, for larger ones each layer is split out,
+For smaller models, immediate visualization of all attention layers is possible, for larger ones, each layer is split out,
 whereas the largest ones are spit out by layers and attention head groups.
 
 The obtained HTML visualization offers two views:
@@ -124,11 +124,11 @@ The obtained HTML visualization offers two views:
 
 **2. Observer view**: Hover over a token to see how previous tokens have influenced its generation through self-attention
 
-In both views, users can freeze the attention value visualization for a certain token by double clicking on it. The two
+In both views, users can freeze the attention value visualization for a certain token by double-clicking on it. The two
 views can be (un)frozen independently.
 
 \autoref{fig:1} shows an example of running the code above on `<model>` with the prompt "Continue this story: The beautiful
-grey cat Tom is chasing after Jerry the mouse.", and focusin on the word "Tom" in the prompt
+grey cat Tom is chasing after Jerry the mouse.", and focusing on the word "Tom" in the prompt
 
 ![Example of the attention render, highlighting all words paying attention to "Tom" in the prompt, in the attention head 4, layer <layer> .\label{fig:1}](./examples/tomjerry.png)
 
@@ -170,7 +170,7 @@ We identify the following packages for attention visualization:
   
 * `att_viz` started as a modification of `bertviz` for supporting self-attention instead of cross-attention
 
-* `att_viz` implements self-attention visualizations for bigger models by splitting the matrix in chunks. This ensures the resulting HTML files are small and easy to render.
+* `att_viz` implements self-attention visualizations for bigger models by splitting the matrix into chunks. This ensures the resulting HTML files are small and easy to render.
 
 * Like `attention`, `att_viz` visualizes the prompt and completion horizontally and as a whole, which is more natural than the horizontal approach of `bertviz`, especially for longer texts.
 
