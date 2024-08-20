@@ -226,6 +226,7 @@ requirejs(['jquery', 'd3'], function ($, d3) {
         const textEl = tokenContainer.append("text")
             .text(d => d)
             .attr("font-size", TEXT_SIZE + "px")
+            .attr("font-weight", (_, i) => ((i < promptLength) ? "bold" : "normal"))
             .style("cursor", "default")
             .style("-webkit-user-select", "none")
             .attr("y", (_, i) => tokenInfo[i][1])
