@@ -118,6 +118,7 @@ requirejs(['jquery', 'd3'], function ($, d3) {
         config.layer = config.layers[config.layerSeq]
         config.head = 0
         config.headStartIdx = config.attention['head_start_idx']
+        config.layerIdx = config.attention['layer_idx']
 
         // Mark the first head as selected / the default view
         config.headVis = new Array(config.nHeads).fill(false);
@@ -138,6 +139,9 @@ requirejs(['jquery', 'd3'], function ($, d3) {
                 config.layerSeq = config.layers.findIndex(layer => config.layer === layer);
                 renderVisualization();
             });
+        } else {
+            let layerEl = $(`#${config.rootDivId} #layer`);
+            layerEl.append($("<option />").val(config.layerIdx).text(config.layerIdx));
         }
     }
 

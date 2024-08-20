@@ -268,6 +268,7 @@ class Renderer:
             "pos": token_info,
             "dy_total": dy,
             "head_start_idx": 0,
+            "layer_idx" : 0
         }
 
         ## If the aggregation method is not none, we will not render in chunks, as some dimensions have collapsed.
@@ -293,6 +294,7 @@ class Renderer:
                             "num_heads": end - start,
                             "num_layers": 1,
                             "head_start_idx": start,
+                            "layer_idx": layer_idx,
                         }
                     )
 
