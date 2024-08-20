@@ -95,9 +95,9 @@ from att_viz.renderer import Renderer, RenderConfig
 from att_viz.self_attention_model import SelfAttentionModel
 from att_viz.attention_aggregation_method import AttentionAggregationMethod
 
-model_name_or_directory: str = "Salesforce/codegen-350M-mono"
-# For models hosted by HuggingFace, it is org/name, eg "Salesforce/codegen-350M-mono"
-prompt: str = "Continue this story: The beautiful grey cat, Tom, is chasing after Jerry the mouse. He is"
+model_name_or_directory: str = "openlm-research/open_llama_7b"
+# For models hosted by HuggingFace, it is org/name, eg ""
+prompt: str = "Continue this story: The beautiful grey cat, Tom, is chasing after Jerry the mouse. He is 100%"
 
 # Initialize the model: this loads the corresponding Huggingface model and tokenizer
 model = SelfAttentionModel(model_name_or_directory=model_name_or_directory)
@@ -112,7 +112,8 @@ experiment = Experiment(model, renderer)
 
 # Finally, run inference, save the attention matrices and generate html render files in the current working directory
 experiment.basic_experiment(prompt=prompt,
-                            aggr_method=AttentionAggregationMethod.NONE)
+                            aggr_method=AttentionAggregationMethod.NONE,
+                            prompt_template=None)
 ```
 
 For smaller models, immediate visualization of all attention layers is possible, for larger ones, each layer is split out,
@@ -127,10 +128,10 @@ The obtained HTML visualization offers two views:
 In both views, users can freeze the attention value visualization for a certain token by double-clicking on it. The two
 views can be (un)frozen independently.
 
-\autoref{fig:1} shows an example of running the code above on `` with the prompt "Continue this story: The beautiful
-grey cat, Tom, is chasing after Jerry the mouse. He is", and focusing on the word "Tom" in the prompt
+\autoref{fig:1} shows an example of running the code above on `openlm-research/open_llama_7b` with the prompt "Continue this story: The beautiful
+grey cat, Tom, is chasing after Jerry the mouse. He is 100%", and focusing on the word "Jerry" in the prompt
 
-![Example of the attention render, highlighting all words paying attention to "Tom" in the prompt, in the attention head 4, layer <layer> .\label{fig:1}](./examples/tomjerry.png)
+![Example of the attention render, highlighting all words paying attention to "Jerry" in the prompt, in the attention head 4, layer 25.\label{fig:1}](./examples/tomjerry_v2.png)
 
 For smaller models, 
 
