@@ -157,10 +157,10 @@ leads to the model generating always vulnerable, respectively never vulnerable c
     environment to render an HTML template. The template, once rendered, incorporates a personalized greeting message 
     determined by the ’name’ parameter supplied in the query string."
 
-\autoref{fig:2} shows the attention map for the first head of the 7th layer of the model, which allowed us to trace
+\autoref{fig:2} shows the attention map for the first head of the 48th layer of the model, which allowed us to trace
 down the vulnerability to the usage of "incorporates" vs "includes" in the prompt.
 
-![Comparative attention render of non-vulnerable (left) vs vulnerable code (right), focusing on the first token of vulnerable line.\label{fig:2}](./examples/Vulnerable-vs-non-vulnerable.png)
+![Comparative attention render of non-vulnerable (left) vs vulnerable code (right), focusing on the first token of vulnerable line.\label{fig:2}](./examples/comparison.png)
 
 [//]: # (After a closer investigation with `att_viz`, we have discovered that the model focuses on different token types for the two prompts. )
 
