@@ -11,6 +11,8 @@
 
 `pip install -i https://test.pypi.org/simple/ att-viz==0.0.6`
 
+Documentation is available [here](https://aindreias.github.io/att_viz/att_viz.html)
+
 ## Statement of Need
 
 Advances in the language modelling field have led to the development of self-attention-based large language models (LLMs). These models have billions of learnable parameters and need to be trained on astronomic amounts of data. Their impressive performance relies on complex interactions within the architecture, something which is often difficult to isolate and explain.
