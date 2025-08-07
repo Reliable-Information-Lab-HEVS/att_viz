@@ -13,6 +13,42 @@
 
 Documentation is available [here](https://aindreias.github.io/att_viz/att_viz.html)
 
+## Quick usage
+
+Once installed, `att_viz` integrates directly with the Transformers interface. 
+
+```
+from att_viz.utils import Experiment
+from att_viz.renderer import Renderer, RenderConfig
+from att_viz.self_attention_model import SelfAttentionModel
+from att_viz.attention_aggregation_method import AttentionAggregationMethod
+
+model_name_or_directory: str = "openlm-research/open_llama_7b"
+# For models hosted by HuggingFace, it is org/name, eg ""
+prompt: str = "Continue this story: The beautiful grey cat, Tom, is chasing after Jerry the mouse. He is 100%"
+
+# Initialize the model: this loads the corresponding Huggingface model and tokenizer
+model = SelfAttentionModel(model_name_or_directory=model_name_or_directory)
+
+# Initialize the renderer with the base configuration and no attention aggregation method
+render_config=RenderConfig()
+renderer = Renderer(render_config,
+                    aggregation_method=AttentionAggregationMethod.NONE)
+
+# Initialize the experiment 
+experiment = Experiment(model, renderer)
+
+# Finally, run inference, save the attention matrices and generate html render files in the current working directory
+experiment.basic_experiment(prompt=prompt,
+                            aggr_method=AttentionAggregationMethod.NONE,
+                            prompt_template=None)
+```
+
+Beware that the size of generated pages will be linear in the size of the model and quadratic in the size of the text.
+
+For helping with the interpretability we recommend running the post-processing pipeline with a `python post_processing.py <filename> <amplification> <filter>` documentation about the commands is available with a `python post_processing.py --help`.
+
+
 ## Statement of Need
 
 Advances in the language modelling field have led to the development of self-attention-based large language models (LLMs). These models have billions of learnable parameters and need to be trained on astronomic amounts of data. Their impressive performance relies on complex interactions within the architecture, something which is often difficult to isolate and explain.
